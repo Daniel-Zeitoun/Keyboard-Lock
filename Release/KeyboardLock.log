@@ -1,0 +1,18 @@
+﻿  control.c
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(35,13): warning C4047: 'fonction' : les niveaux d'indirection de 'HMENU' et de 'int' sont différents
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(35,13): warning C4024: 'CreateWindowExW' : types différents pour le paramètre formel et réel 10
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(55,40): warning C4047: '==' : les niveaux d'indirection de 'LPARAM' et de 'HWND' sont différents
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(58,80): warning C4244: 'fonction' : conversion de 'DWORD' en 'BYTE', perte possible de données
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(59,42): warning C4020: 'SetOpacity' : paramètres réels trop nombreux
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(61,44): warning C4047: '==' : les niveaux d'indirection de 'LPARAM' et de 'HWND' sont différents
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(64,79): warning C4244: 'fonction' : conversion de 'DWORD' en 'BYTE', perte possible de données
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(65,41): warning C4020: 'SetOpacity' : paramètres réels trop nombreux
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(166,56): warning C4047: 'return' : les niveaux d'indirection de 'LRESULT' et de 'HBRUSH' sont différents
+C:\Users\Daniel\source\repos\KeyboardLock\src\control.c(173,1): warning C4029: la déclaration de la liste de paramètres formels est différente de la définition
+  main.c
+  Génération de code en cours
+  12 of 12 functions (100.0%) were compiled.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Fin de la génération du code
+  KeyboardLock.vcxproj -> C:\Users\Daniel\source\repos\KeyboardLock\Release\KeyboardLock.exe
