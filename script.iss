@@ -2,9 +2,10 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "KeyboardLock"
-#define MyAppVersion "1.5.2"
+#define MyAppVersion "2.0.0"
 #define MyAppPublisher "DZSoftware"
 #define MyAppExeName "KeyboardLock.exe"
+#define year "2021"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -14,7 +15,7 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppVerName={#MyAppName}
-AppPublisher={#MyAppPublisher}
+AppPublisher= {#MyAppPublisher}
 CloseApplications=yes
 DefaultDirName={autopf}\{#MyAppPublisher}\{#MyAppName}
 DisableProgramGroupPage=yes
@@ -25,14 +26,14 @@ UsedUserAreasWarning=no
 ; PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=setup
 OutputBaseFilename="Setup v{#MyAppVersion}"
-SetupIconFile=img\KeyboardLock.ico
+SetupIconFile=rsrc\KeyboardLock.ico
 UninstallDisplayIcon={app}\KeyboardLock.exe
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
-AppCopyright=Copyright (C) DZSoftware
-WizardSmallImageFile=img\KeyboardLockSmall.bmp
-WizardImageFile=img\KeyboardLockBig.bmp
+AppCopyright=Copyright (C) {#year} DZSoftware
+WizardSmallImageFile=rsrc\KeyboardLockSmall.bmp
+WizardImageFile=rsrc\KeyboardLockBig.bmp
 WizardImageStretch=no
 
 [Languages]
@@ -68,5 +69,4 @@ Root: HKCU; Subkey: "Software\DZSoftware\KeyboardLock"; ValueType: dword; ValueN
 Root: HKCU; Subkey: "Software\DZSoftware\KeyboardLock"; ValueType: dword; ValueName: "NUMY"; ValueData: "30"; Flags: createvalueifdoesntexist
 Root: HKCU; Subkey: "Software\DZSoftware\KeyboardLock"; ValueType: dword; ValueName: "CAPSOPACITY"; ValueData: "80"; Flags: createvalueifdoesntexist
 Root: HKCU; Subkey: "Software\DZSoftware\KeyboardLock"; ValueType: dword; ValueName: "NUMOPACITY"; ValueData: "80"; Flags: createvalueifdoesntexist
-Root: HKCU; Subkey: "Software\DZSoftware\KeyboardLock"; ValueType: dword; ValueName: "DEBUG"; ValueData: "0"; Flags: createvalueifdoesntexist
 Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "KeyboarldLock"; ValueData: """{app}\KeyboardLock.exe"""; Flags: uninsdeletevalue createvalueifdoesntexist

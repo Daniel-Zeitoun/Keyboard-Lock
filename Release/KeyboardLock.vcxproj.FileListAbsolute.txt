@@ -1,2 +1,1 @@
-D:\Programmation\KeyboardLock\Release\KeyboardLock.exe
-C:\Users\Daniel\source\repos\KeyboardLock\Release\KeyboardLock.exe
+C:\Users\Daniel\Desktop\KeyboardLock\Release\KeyboardLock.exe

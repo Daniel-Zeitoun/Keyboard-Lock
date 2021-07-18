@@ -1,2 +1,2 @@
-PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.27.29110:TargetPlatformVersion=10.0.18362.0:
-Release|Win32|C:\Users\Daniel\source\repos\KeyboardLock\|
+PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30037:VCServicingVersionCrtHeaders=14.29.30038:VCServicingVersionCompilers=14.29.30038:TargetPlatformVersion=10.0.18362.0:VcpkgTriplet=x86-windows:
+Release|Win32|C:\Users\Daniel\Desktop\KeyboardLock\|
