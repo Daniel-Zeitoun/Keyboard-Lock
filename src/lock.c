@@ -170,17 +170,16 @@ VOID UpdateLock(LockButton* lockButton, BOOL reverse)
 	else
 		state = GetKeyState(lockButton->virtualKey);
 
-	if (state)
+	if (state && lockButton->state != OFF)
 	{
 		lockButton->state = OFF;
 		ShowLock(lockButton);
 	}
-	else
+	else if(!state && lockButton->state != ON)
 	{
 		lockButton->state = ON;
 		ShowLock(lockButton);
 	}
-
 }
 /************************************************************************************************************/
 DWORD CALLBACK UpdateLocksThreadProc(LPVOID param)
@@ -188,9 +187,9 @@ DWORD CALLBACK UpdateLocksThreadProc(LPVOID param)
 	SHORT state = 0;
 	while (1)
 	{
-		Sleep(1000);
 		UpdateLock(&caps, TRUE);
 		UpdateLock(&num, TRUE);
+		Sleep(50);
 	}
 	ExitThread(0);
 }
