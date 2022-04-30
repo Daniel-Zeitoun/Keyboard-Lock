@@ -13,8 +13,6 @@ LRESULT CALLBACK LockWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		return 0;
 	case WM_CREATE:
 	{
-		//LockButton* lockButton = ((LPCREATESTRUCT)lParam)->lpCreateParams;
-
 		HFONT hFont = CreateFont(18, 0, 0, 0, FW_BLACK, 0, 0, 0, 0, 0, 0, 0, 0, TEXT("Arial Black"));
 
 		if (!caps.hWnd)
@@ -163,23 +161,36 @@ VOID ShowLock(LockButton* lockButton)
 /************************************************************************************************************/
 VOID UpdateLock(LockButton* lockButton, BOOL reverse)
 {
+	if (TryEnterCriticalSection(&lockButton->lock) == 0)
+		return;
+
 	SHORT state = 0;
 
 	if (reverse)
-		state = !GetKeyState(lockButton->virtualKey);
-	else
+	{
+		// thread
 		state = GetKeyState(lockButton->virtualKey);
+		if (state >= 0)
+			state = !state;
+	}
+	else
+	{
+		// button
+		state = GetKeyState(lockButton->virtualKey);
+	}
 
-	if (state && lockButton->state != OFF)
+	if (state == 1 && lockButton->state != OFF)
 	{
 		lockButton->state = OFF;
 		ShowLock(lockButton);
 	}
-	else if(!state && lockButton->state != ON)
+	else if (state == 0 && lockButton->state != ON)
 	{
 		lockButton->state = ON;
 		ShowLock(lockButton);
 	}
+
+	LeaveCriticalSection(&lockButton->lock);
 }
 /************************************************************************************************************/
 DWORD CALLBACK UpdateLocksThreadProc(LPVOID param)

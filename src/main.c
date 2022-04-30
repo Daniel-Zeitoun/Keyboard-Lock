@@ -48,6 +48,10 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 	if (!RegisterClass(&classLock))
 		return EXIT_FAILURE;
 
+
+	InitializeCriticalSection(&caps.lock);
+	InitializeCriticalSection(&num.lock);
+
 	/**************************/
 	// Retrieve configuration from registry
 	if (!ReadConfig())
@@ -115,6 +119,9 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
+
+	DeleteCriticalSection(&num.lock);
+	DeleteCriticalSection(&caps.lock);
 
 	return 0;
 }

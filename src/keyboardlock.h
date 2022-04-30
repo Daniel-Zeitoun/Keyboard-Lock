@@ -14,7 +14,7 @@
 #define RGB_GREEN RGB(0, 255, 0)
 #define RGB_RED   RGB(255, 0, 0)
 
-#define TITLE TEXT("KeyboardLock 2.1.0")
+#define TITLE TEXT("KeyboardLock 2.2.0")
 #define DZSoftawre TEXT("SOFTWARE\\DZSoftware\\KeyboardLock")
 #define MY_WM_NOTIFYICON WM_USER +1
 #define ID_QUIT 1
@@ -44,6 +44,7 @@ typedef struct LockButton
 	POINT position;
 	DWORD opacity;
 	DWORD virtualKey;
+	CRITICAL_SECTION lock;
 } LockButton;
 
 extern LockButton caps;
